@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
-
-
-  
-
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
-      <a className="navbar-brand" href="/">
+      <Link className="navbar-brand" to="/">
         {props.title}
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -28,23 +25,56 @@ export default function Navbar(props) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="/">
+            <Link className="nav-link" to="/">
               Home <span className="sr-only">(current)</span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/">
+            <Link className="nav-link" to="/about">
               {props.aboutText}
-            </a>
+            </Link>
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
           {/* Custom Color Scheme */}
           <div className="colorSchemeContainer">
-            <div onClick={props.redTheme} style={{background : props.color === 'red'?'white':'red'}} className="colorCircle"id="red"></div>
-            <div onClick={props.greenTheme} style={{background : props.color === 'green'?'white':'green'}} className="colorCircle" id="green"></div>
-            <div onClick={props.orangeTheme} className="colorCircle" style={{background : props.color === 'orange'?'white':'orange'}} id="violet"></div>
-            <div onClick={props.violetTheme} className="colorCircle" style={{background : props.color === 'violet'?'white':'violet'}} className="colorCircle" id="orange"></div>
+            <div
+              onClick={props.redTheme}
+              style={{ background: props.color === "red" ? "white" : "red" ,
+              boxShadow: "red 0px 0px 6px 1px"
+            }}
+              className="colorCircle"
+              id="red"
+            ></div>
+            <div
+              onClick={props.greenTheme}
+              style={{
+                background: props.color === "green" ? "white" : "green",
+                boxShadow: "green 0px 0px 6px 1px"
+              }}
+              className="colorCircle"
+              id="green"
+            ></div>
+            <div
+              onClick={props.violetTheme}
+              className="colorCircle"
+              style={{
+                background: props.color === "violet" ? "white" : "violet",
+                boxShadow: "violet 0px 0px 6px 1px"
+                
+              }}
+              id="orange"
+            ></div>
+            <div
+              onClick={props.orangeTheme}
+              className="colorCircle"
+              style={{
+                background: props.color === "orange" ? "white" : "orange",
+                boxShadow: "orange 0px 0px 6px 1px"
+
+              }}
+              id="violet"
+            ></div>
           </div>
           <div
             className={`custom-control custom-switch my-3 text-${

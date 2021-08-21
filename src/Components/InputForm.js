@@ -64,10 +64,9 @@ export default function InputForm(props) {
         className="card my-3"
         style={{
           transition: "1s",
-          background: props.color === "red" ? "#ffb6b6" : "",
-          background: props.color === "green" ? "#0080003b" : "",
-          background: props.color === "orange" ? "#ffa50063" : "",
-          background: props.color === "violet" ? "#ee82ee78" : "",
+          background: props.color,
+          opacity: 0.8,
+          color: props.mode === 'light'? 'black':'white'
         }}
       >
         <div className="card-body">
