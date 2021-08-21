@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import About from "./Components/About";
+// import About from "./Components/About";
 import Alert from "./Components/Alert";
 import InputForm from "./Components/InputForm";
 import Navbar from "./Components/Navbar";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -36,7 +36,7 @@ function App() {
   }
 
   function redTheme() {
-    if (color != "red") {
+    if (color !== "red") {
       setColor("red");
       document.body.style.background =
         mode === "dark" ? "#49535d " : "#ff000052";
@@ -46,7 +46,7 @@ function App() {
     }
   }
   function greenTheme() {
-    if (color != "green") {
+    if (color !== "green") {
       setColor("green");
       document.body.style.background =
         mode === "dark" ? "#49535d " : "#0080005e";
@@ -56,7 +56,7 @@ function App() {
     }
   }
   function violetTheme() {
-    if (color != "violet") {
+    if (color !== "violet") {
       setColor("violet");
       document.body.style.background =
         mode === "dark" ? "#49535d " : "#ee82ee52";
@@ -66,7 +66,7 @@ function App() {
     }
   }
   function orangeTheme() {
-    if (color != "orange") {
+    if (color !== "orange") {
       setColor("orange");
       document.body.style.background =
         mode === "dark" ? "#49535d " : "#ffa50059";
@@ -78,7 +78,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      {/* <Router>
         <Navbar
           title="Text Utill's"
           mode={mode}
@@ -93,7 +93,6 @@ function App() {
         <Alert alert={alert} />
 
         <Switch>
-          {/* Exact is important here */}
           <Route exact path="/">
             <InputForm
               heading="Enter the Text to Analyze"
@@ -106,7 +105,26 @@ function App() {
             <About mode={mode} color={color} />
           </Route>
         </Switch>
-      </Router>
+      </Router> */}
+
+      <Navbar
+        title="Text Utill's"
+        mode={mode}
+        aboutText="AboutAAA"
+        toggleMode={toggleMode}
+        redTheme={redTheme}
+        greenTheme={greenTheme}
+        orangeTheme={orangeTheme}
+        violetTheme={violetTheme}
+        color={color}
+      />
+      <Alert alert={alert} />
+      <InputForm
+        heading="Enter the Text to Analyze"
+        mode={mode}
+        showAlert={showAlert}
+        color={color}
+      />
     </>
   );
 }
